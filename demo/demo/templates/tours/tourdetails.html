@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+
+
+
+<div class="container" id="product-section">
+  <div class="row">
+
+
+   <div class="col-md-6">
+    {% if tour.image %}
+        <img src="{{tour.image.url}}" class="img-fluid"> <br>
+    {% endif %}
+   </div>
+
+
+   <div class="col-md-6">
+       <div class="row">
+           <div class="col-md-12">
+               <h1>{{tour.name}}</h1>
+               <span class="label label-primary">tourId</span>
+               <span class="monospaced">: {{tour.pk}}</span>
+               <div style="width: 300px" class="description">
+                {{tour.details}}
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-5 bottom-rule">
+               <h2 class="product-price">Rs. {{tour.price}}</h2>
+
+           </div>
+
+
+
+       </div>
+       <div class="row">
+
+            <div class="col-md-5">
+
+               <h4>Discount : {{tour.discount}} %</strike></h4>
+           </div>
+
+       </div>
+
+
+
+       <div class="row">
+
+       </div>
+       <div class="row">
+        <div class="col-md-12 top-10">
+        <p>To order by telephone, <a href="tel:9130899800">please call 9130899800</a></p>
+    </div>
+
+ </div>
+
+   </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

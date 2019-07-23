@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-5">
+        <form action="{% url 'searchtour_destination' %}" class="form-search">
+        <div class="row">
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="Search destination" aria-label="Search" name="q" >
+
+            </div>
+            <div class="col-6">
+                 <button class="btn btn-outline-success " type="submit" >Search</button>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    <div class="col-5">
+         <form action="{% url 'searchtour_category' %}" class="form-search">
+        <div class="row">
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="Search category" aria-label="Search" name="q" >
+
+            </div>
+            <div class="col-6">
+               <button class="btn btn-outline-success " type="submit" >Search</button>
+
+            </div>
+        </div>
+         </form>
+
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+
+{% if query %}
+<div class="col-12 mb-3">
+  Search Results for {{ query }}
+  <br>
+</div>
+{% endif %}
+
+
+
+
+
+
+<div class="row container-fluid" >
+{% for i in tour %}
+
+
+  <div class="col-lg-4 col-md-6">
+    {{forloop.counter}}
+
+
+
+          <div class="card" style="width:400px">
+              {% if i.image %} <a href="{% url 'tourdetails' i.pk %}"><img class="card-img-top" src="{{i.image.url}}" alt="Card image" style="width:100%"></a> {% endif %}
+    <div class="card-body">
+      <h4 class="card-title">{{i.name}}---{{i.number_of_days}} days  </h4>
+        <a href="#"><h6>provider-{{i.provider.name}}</h6></a>
+      <p class="card-text">Id- {{i.id}} {{i.details}}</p>
+      <a href="{% url 'tourdetails' i.pk %}" class="btn btn-primary">View more</a>
+    </div>
+  </div>
+
+      </div>
+
+
+{% endfor %}
+  </div>
+{% endblock %}

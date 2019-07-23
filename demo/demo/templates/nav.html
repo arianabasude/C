@@ -1,0 +1,100 @@
+
+
+<div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
+        <a class="navbar-brand" href="#">home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav mr-auto">
+            <li class="{% if request.path == home %} active {% endif %}">
+
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="{% if request.path == analysis_view %} active {% endif %}">
+              <a class="nav-link" href="#">Trends</a>
+            </li>
+               <li class="nav-item {% if request.path == productlist %} active {% endif %}">
+              <a class="nav-link " href="#">Product</a>
+            </li>
+              <li class="nav-item {% if request.path == cartshome %} active {% endif %}">
+              <a class="nav-link " href="#">Cart </a>
+            </li>
+               <li class="nav-item {% if request.path == checkout_home %} active {% endif %}">
+              <a class="nav-link " href="#">Checkout</a>
+
+
+              <li class="nav-item {% if request.path == analysis %} active {% endif %}">
+              <a class="nav-link " href="{{analysis}}">Analysis- Graphs</a>
+             </li>
+
+              </li>
+              <li class="nav-item {% if request.path == contact %} active {% endif %}">
+              <a class="nav-link " href="{{contact}}">Contact</a>
+            </li>
+
+
+
+
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown09">
+                <a class="dropdown-item" href="#">Log- Settings</a>
+                <a class="dropdown-item" href="#">Add Product</a>
+
+                <a class="dropdown-item" href="#">Add Suppler</a>
+                  <a class="dropdown-item" href="#">Add Employee</a>
+
+
+
+              </div>
+            </li>
+               <li class="nav-item {% if request.path == logout %} active {% endif %}">
+              <a class="nav-link " href="#">Log Out</a>
+            </li>
+
+
+
+
+
+
+
+          </ul>
+             <ul class="nav navbar-nav navbar-right">
+       <li >
+                    <i class="fa fa-shopping-cart fa-3x" aria-hidden="true" title="Edit"> <span class="nav-count">{% if request.session.cart_items > 0 %}{{request.session.cart_items}}{% endif %}</span></i>
+                </li>
+    </ul>
+
+
+
+        </div>
+      </nav>
+
+</div>
+
+
+<br>
+<br>
+  <form action="{% url 'searchtour' %}" class="form-search">
+  <div class="row">
+
+      <div class="col-lg-8 mr-6 ml-6 col-md-10 col-sm-10 col-9 py-3">
+      <input class="form-control" type="text" placeholder="Search destination, category Here" aria-label="Search" name="q" value="{{ request.GET.q}}">
+      </div>
+      <div class="col-lg-4  col-md-2 col-sm-2 col-3 py-3">
+           <button class="btn btn-outline-success " type="submit" >Search</button>
+      </div>
+
+      <div class="col-12">
+      <hr class="border-success">
+  </div>
+</div>
+        </form>
+<br>
+<br>
