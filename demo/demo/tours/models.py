@@ -9,12 +9,18 @@ INCLUSIONS =(
     ('bus','Bus'),
     ('sightseeing','Sightseeing'),
     ('hotel','Hotel'),
+    ('travel_insurance', 'Travel Insurance'),
+    ('visa', 'Visa'),
 )
 EXCLUSIONS =(
     ('flight','Flight'),
-    ('paid','Paid'),
-    ('shipped','Shipped'),
-    ('refunded','Refunded')
+    ('travel_insurance','Travel Insurance'),
+    ('visa','Visa'),
+    ('refunded','Refunded'),
+    ('meals', 'Meals'),
+    ('bus', 'Bus'),
+    ('sightseeing', 'Sightseeing'),
+    ('hotel', 'Hotel'),
 )
 TYPE=(
     ('couple','Couple'),

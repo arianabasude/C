@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-from .views import TourListView, TourDetailView, SearchTourListView,SearchDestination,SearchCategory
+from .views import TourListView, TourDetailView, SearchTourListView
 from . import views
 
 urlpatterns = [
@@ -24,7 +24,6 @@ urlpatterns = [
     path('',TourListView.as_view(), name = 'tourlist'),
     path('details/<int:pk>',TourDetailView.as_view(), name='tourdetails'),
     path('search',SearchTourListView.as_view(),name='searchtour'),
-    path('search',SearchDestination.as_view(),name='searchtour_destination'),
-    path('search',SearchCategory.as_view(),name='searchtour_category')
+
    
 ]

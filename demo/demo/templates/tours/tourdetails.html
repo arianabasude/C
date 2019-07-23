@@ -1,68 +1,124 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-
-
-
-
-
-<div class="container" id="product-section">
+<div class="container">
   <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12">
+          {% if tour.image %}
+            <img src="{{tour.image.url}}" width="500px" height="400px">
+          {% endif %}
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="display-4" style="text-decoration: underline">{{tour.name}}</div>
+          <div style="font-family:'Comic Sans MS';font-size: x-large"> &#8377; {{tour.price}} per {{tour.type}} for <span style="color:#a41515;">{{tour.number_of_days}}days</span></div>
 
 
-   <div class="col-md-6">
-    {% if tour.image %}
-        <img src="{{tour.image.url}}" class="img-fluid"> <br>
-    {% endif %}
-   </div>
+          <a href="#"><h6>{{tour.provider}}</h6></a>
+          <h6 style="text-decoration: underline">Destination: {{tour.destination}}</h6>
+                <h5>Inclusions:</h5>
 
+                <ul>
+                   {% for i in tour.inclusions %}
+                  <li>{{i}}</li>
+                  {% endfor %}
+                </ul>
+              <h5>Exclusions:</h5>
 
-   <div class="col-md-6">
-       <div class="row">
-           <div class="col-md-12">
-               <h1>{{tour.name}}</h1>
-               <span class="label label-primary">tourId</span>
-               <span class="monospaced">: {{tour.pk}}</span>
-               <div style="width: 300px" class="description">
+                <ul>
+                   {% for i in tour.exclusions %}
+                  <li>{{i}}</li>
+                  {% endfor %}
+                </ul>
+
+                <h4>Details:</h4>
+               <blockquote>
                 {{tour.details}}
-               </div>
-           </div>
-       </div>
-       <div class="row">
-           <div class="col-md-5 bottom-rule">
-               <h2 class="product-price">Rs. {{tour.price}}</h2>
+               </blockquote>
+             {% if tour.conditions %}
+             <h4>Conditions :</h4> {{tour.conditions}}
+             {% endif %}
 
-           </div>
+          <br>
+             {% if tour.policy %}
+          <h4>Policies : </h4>{{tour.policy}}
+             {% endif %}
 
-
-
-       </div>
-       <div class="row">
-
-            <div class="col-md-5">
-
-               <h4>Discount : {{tour.discount}} %</strike></h4>
-           </div>
-
-       </div>
+             {% if tour.catergory %}
+             <h4>Under Category :</h4>
+             {% for i in tour.catergory %}
+             <li>{{i}}</li>
+             {% endfor %}<br>
+             {% endif %}
 
 
 
-       <div class="row">
 
-       </div>
-       <div class="row">
-        <div class="col-md-12 top-10">
-        <p>To order by telephone, <a href="tel:9130899800">please call 9130899800</a></p>
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
     </div>
 
- </div>
-
-   </div>
+    <!-- div for form -->
+    <div class="col-6">
+       <form class="form-horizontal" action="" id="myForm">
+  <div class="form-group">
+    <div class="h3">Get more Info...</div>
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Name:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="pwd" placeholder="Enter Full Name">
+    </div>
   </div>
 
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-outline-secondary">I am Interested</button>
+    </div>
+  </div>
+</form>
+
+
+
+    </div>
+    </div>
+
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
