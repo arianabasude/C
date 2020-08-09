@@ -24,10 +24,6 @@ def clickEvent(event_name,x,y,flags,param):
 			#img,pt1,pt2,color in blue-green-red,thick
 		cv2.imshow('FrameTitle',img)
 
-	if(event_name==cv2.EVENT_RBUTTONDOWN):
-		cv2.putText(img,str(img[y,x,0])+','+str(img[y,x,1])+','+str(img[y,x,2]),(x,y),cv2.FONT_HERSHEY_SIMPLEX,1,(255,100,100),1,cv2.LINE_AA)
-		#puts blue green and red color
-		cv2.imshow('FrameTitle',img)
 
 img=numpy.zeros((512,512,3),numpy.uint8)
 cv2.imshow('FrameTitle',img)
